@@ -2,6 +2,7 @@
 
 ---
 
+*** Currently It works on only bash. *** Because It uses ${BASH_PID}.
 # use with shrimp
 
 We also lunch package manager for shell scripts.
