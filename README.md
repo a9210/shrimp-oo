@@ -1,7 +1,7 @@
 # shrimp-oo : shell script package for object oriented programming.
 
 ---
-https://travis-ci.org/a9210/shrimp-oo.svg?branch=develop
+[![Build Status](https://travis-ci.org/a9210/shrimp-oo.svg?branch=develop)](https://travis-ci.org/a9210/shrimp-oo)
 
 *** Currently It works on only bash. *** Because It uses ${BASH_PID}.
 # use with shrimp
