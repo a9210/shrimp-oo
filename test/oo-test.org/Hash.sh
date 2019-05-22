@@ -1,7 +1,8 @@
 #!/bin/bash
-cat $(which include.sh)
-cat include.sh
-source include.sh
+#cat $(which include.sh)
+#cat include.sh
+#source include.sh
+source $(which include.sh)
 source $(@import shrimp-oo shrimp-oo.sh)
 
 AssertClass=$(@import shrimp-util Assert.sh)
