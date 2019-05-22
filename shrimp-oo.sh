@@ -55,7 +55,7 @@ function @invoke() {
         previusLine=${line}
     done < ${OBJ_STDOUT}
 
-    return $((previusLine))
+    #return $((previusLine))
 }
 function @delete {
     local OBJ_PID=$1
