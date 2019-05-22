@@ -1,8 +1,5 @@
 #!/bin/bash
-#cat $(which include.sh)
-#cat include.sh
-#source include.sh
-source $(which include.sh)
+source include.sh
 source $(@import shrimp-oo shrimp-oo.sh)
 
 AssertClass=$(@import shrimp-util Assert.sh)
@@ -28,7 +25,6 @@ RESULT=$(@invoke ${rushHash}.get "bass")
 
 
 RESULT=$(@invoke ${yuraHash}.get "vocal")
-echo ${yuraHash} ${RESULT}
 @invoke ${assert}.assert "${RESULT}" "SAKAMOTO Shintaro"
 RESULT=$(@invoke ${yuraHash}.get "bass")
 @invoke ${assert}.assert "${RESULT}" "KAMEKAWA Chiyo"
