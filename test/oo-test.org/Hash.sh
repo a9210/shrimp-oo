@@ -28,6 +28,7 @@ RESULT=$(@invoke ${rushHash}.get "bass")
 
 
 RESULT=$(@invoke ${yuraHash}.get "vocal")
+echo ${yuraHash} ${RESULT}
 @invoke ${assert}.assert "${RESULT}" "SAKAMOTO Shintaro"
 RESULT=$(@invoke ${yuraHash}.get "bass")
 @invoke ${assert}.assert "${RESULT}" "KAMEKAWA Chiyo"
