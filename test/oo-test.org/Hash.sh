@@ -1,4 +1,5 @@
 #!/bin/bash
+cat $(which include.sh)
 source include.sh
 source $(@import shrimp-oo shrimp-oo.sh)
 
