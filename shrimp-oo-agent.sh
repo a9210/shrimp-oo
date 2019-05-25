@@ -14,7 +14,7 @@ do
             LOOP_FLAG=false
             break
         fi
-        {echo "";eval ${line};echo "$?";} >> ${FIFO_STDOUT}        # dummy output for avoiding client halt when this method has no output
+        { echo ""; eval ${line}; echo "$?"; } >> ${FIFO_STDOUT}        # dummy output for avoiding client halt when this method has no output
 
 #        echo "" >> ${FIFO_STDOUT}        # dummy output for avoiding client halt when this method has no output
 #        eval ${line} >> ${FIFO_STDOUT}
