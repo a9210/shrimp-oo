@@ -31,7 +31,7 @@ function @invoke() {
 
     # invoke
     echo ${INVOKE_LINE} >> ${OBJ_STDIN}
-sleep 1
+
     # get output
     local IS_FIRST_LINE=true
     local isSecondLine=true
