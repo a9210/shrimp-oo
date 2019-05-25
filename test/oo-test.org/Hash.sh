@@ -5,7 +5,6 @@ source $(@import shrimp-oo shrimp-oo.sh)
 AssertClass=$(@import shrimp-util Assert.sh)
 assert=$(@new ${AssertClass})
 Hash=$(@import shrimp-util Hash.sh)
-
 rushHash=$(@new ${Hash})
 @invoke ${rushHash}.put "vocal" "Geddy Lee"
 @invoke ${rushHash}.put "bass" "Geddy Lee"

@@ -34,6 +34,8 @@ function @invoke() {
 
     # get output
     local IS_FIRST_LINE=true
+    local isSecondLine=true
+    local previusLine
     while read line
     do
         # First line is always dummy.
@@ -42,8 +44,18 @@ function @invoke() {
             IS_FIRST_LINE=false
             continue
         fi
-        echo ${line}
+
+        if ${isSecondLine}
+        then
+            isSecondLine=false
+            previusLine=${line}
+            continue
+        fi
+        echo ${previusLine}
+        previusLine=${line}
     done < ${OBJ_STDOUT}
+
+    return $((previusLine))
 }
 function @delete {
     local OBJ_PID=$1
