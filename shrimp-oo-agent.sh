@@ -1,6 +1,6 @@
 #!/bin/bash
-FIFO_STDIN=${BASHPID}_stdin.fifo
-FIFO_STDOUT=${BASHPID}_stdout.fifo
+FIFO_STDIN=${ooPath}_${BASHPID}_stdin.fifo
+FIFO_STDOUT=${ooPath}_${BASHPID}_stdout.fifo
 
 mkfifo ${FIFO_STDIN}
 mkfifo ${FIFO_STDOUT}
