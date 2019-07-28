@@ -2,8 +2,8 @@
 FIFO_STDIN=${ooPath}_${BASHPID}_stdin.fifo
 FIFO_STDOUT=${ooPath}_${BASHPID}_stdout.fifo
 
-mkfifo ${FIFO_STDIN}
-mkfifo ${FIFO_STDOUT}
+mkfifo "${FIFO_STDIN}"
+mkfifo "${FIFO_STDOUT}"
 LOOP_FLAG=true
 while ${LOOP_FLAG}
 do
@@ -19,10 +19,10 @@ do
             echo ""                     # dummy output for avoiding client halt when this method has no output
             eval ${line}
             echo "$?"                   # send invoked function's return value
-        } >> ${FIFO_STDOUT}        
+        } >> "${FIFO_STDOUT}"        
 
-    done < ${FIFO_STDIN}
+    done < "${FIFO_STDIN}"
 done
 
-rm ${FIFO_STDIN}
-rm ${FIFO_STDOUT}
+rm "${FIFO_STDIN}"
+rm "${FIFO_STDOUT}"
