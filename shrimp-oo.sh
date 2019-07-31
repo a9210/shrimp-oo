@@ -6,10 +6,7 @@ function @new() {
     ooPath=$(cd "$(dirname ${1})" && pwd)/$(basename ${1})
     ooPath=$(echo "${ooPath}" | sed "s/\/\//\//")
     {
-    function @self {
-        echo "${ooPath}"
-    }
-    source $(@self)
+    source "${ooPath}"
     source "${agentPath}"
     } > /dev/null &
     local OBJ_PID=$!

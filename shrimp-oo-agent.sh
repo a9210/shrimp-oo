@@ -1,6 +1,9 @@
 #!/bin/bash
-FIFO_STDIN=${ooPath}_${BASHPID}_stdin.fifo
-FIFO_STDOUT=${ooPath}_${BASHPID}_stdout.fifo
+function @self {
+    echo "${ooPath}_${BASHPID}"
+}
+FIFO_STDIN=$(@self)_stdin.fifo
+FIFO_STDOUT=$(@self)_stdout.fifo
 
 mkfifo "${FIFO_STDIN}"
 mkfifo "${FIFO_STDOUT}"
