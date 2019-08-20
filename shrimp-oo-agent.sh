@@ -1,6 +1,7 @@
 #!/bin/bash
+selfPath="${ooPath}_${BASHPID}"
 function @self {
-    echo "${ooPath}_${BASHPID}"
+    echo "${selfPath}"
 }
 FIFO_STDIN=$(@self)_stdin.fifo
 FIFO_STDOUT=$(@self)_stdout.fifo

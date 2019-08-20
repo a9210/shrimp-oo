@@ -6,6 +6,7 @@ function @new() {
     ooPath=$(cd "$(dirname ${1})" && pwd)/$(basename ${1})
     ooPath=$(echo "${ooPath}" | sed "s/\/\//\//")
     {
+    ooPath="${ooPath}"
     source "${ooPath}"
     source "${agentPath}"
     } > /dev/null &
