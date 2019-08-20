@@ -1,9 +1,13 @@
 #!/bin/bash
-FIFO_STDIN=${BASHPID}_stdin.fifo
-FIFO_STDOUT=${BASHPID}_stdout.fifo
+selfPath="${ooPath}_${BASHPID}"
+function @self {
+    echo "${selfPath}"
+}
+FIFO_STDIN=$(@self)_stdin.fifo
+FIFO_STDOUT=$(@self)_stdout.fifo
 
-mkfifo ${FIFO_STDIN}
-mkfifo ${FIFO_STDOUT}
+mkfifo "${FIFO_STDIN}"
+mkfifo "${FIFO_STDOUT}"
 LOOP_FLAG=true
 while ${LOOP_FLAG}
 do
@@ -14,10 +18,15 @@ do
             LOOP_FLAG=false
             break
         fi
-        echo "" > ${FIFO_STDOUT}        # dummy output for avoiding client halt when this method has no output
-        eval ${line} > ${FIFO_STDOUT}
-    done < ${FIFO_STDIN}
+
+        {
+            echo ""                     # dummy output for avoiding client halt when this method has no output
+            eval ${line}
+            echo "$?"                   # send invoked function's return value
+        } >> "${FIFO_STDOUT}"        
+
+    done < "${FIFO_STDIN}"
 done
 
-rm ${FIFO_STDIN}
-rm ${FIFO_STDOUT}
+rm "${FIFO_STDIN}"
+rm "${FIFO_STDOUT}"

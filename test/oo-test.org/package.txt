@@ -1,0 +1,2 @@
+[default]
+shrimp-oo shrimp-oo https://github.com/a9210/shrimp-oo develop
